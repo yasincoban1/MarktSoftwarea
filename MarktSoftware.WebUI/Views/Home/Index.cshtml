@@ -1,0 +1,172 @@
+﻿@using MarktSoftware.Entity
+@using MarktSoftware.WebUI.Models
+@model List<MarktSoftware.Entity.Product>
+@{
+    ViewBag.Title = "Index";
+    List<Category> list = CacheHelper.GetCategoriesFromCache();
+}
+<div class="container">
+    <ul class="small-menu">
+        <!--small-nav -->
+        <li><a href="/Home/ShowProfile" class="myacc">Hesabım</a></li>
+        <li><a href="/Cart" class="myshop">Sepetim</a></li>
+    </ul><!--small-nav -->
+    <div class="clearfix"></div>
+    <div class="lines"></div>
+    <div class="main-slide">
+        <div id="sync1" class="owl-carousel">
+            @foreach (var item in Model)
+            {
+                if (item.IsCarousel == true)
+                {
+                    <div class="item">
+                        <div class="slide-desc">
+                            <div class="inner">
+                                <h1>@item.Name</h1>
+                                <p>
+                                    @item.Description
+                                </p>
+                                <button class="btn btn-default btn-red btn-lg">Sepete Ekle</button>
+                            </div>
+                            <div class="inner">
+                                <div class="pro-pricetag big-deal">
+                                    <div class="inner">
+                                        <span class="oldprice">₺@item.OldPrice</span>
+                                        <span>₺@item.Price</span>
+                                        <span class="ondeal">En İyi Fiyat</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-type-1">
+                            <img src="/Images/Product/@item.Image" alt="@item.Brand + @item.Model" class="img-responsive">
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+
+
+        <div class="bar">
+        </div>
+
+        <div id="sync2" class="owl-carousel">
+            @foreach (var item in Model)
+            {
+                if (item.IsCarousel == true)
+                {
+                    <div class="item">
+                        <div class="slide-type-1-sync">
+                            <h3>@item.Name</h3>
+
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+    </div>
+
+
+
+
+
+</div>
+<div class="f-widget featpro">
+    <div class="container">
+        <div class="title-widget-bg">
+            <div class="title-widget">Öne Çıkan Ürünler</div>
+            <div class="carousel-nav">
+                <a class="prev"></a>
+                <a class="next"></a>
+            </div>
+        </div>
+        <div id="product-carousel" class="owl-carousel owl-theme">
+            @foreach (var item in Model)
+            {
+                if (item.IsFeatured == true)
+                {
+                    <div class="item">
+                        <div class="productwrap">
+                            <div class="pr-img">
+                                @if (item.NewHot == "hot")
+                                {
+                                    <div class="hot"></div>
+                                }
+                                @if (item.NewHot == "new")
+                                {
+                                    <div class="new"></div>
+                                }
+                                @if (item.NewHot == null)
+                                {
+                                    <div class=""></div>
+                                }
+                                <a href="/Product/Details/@item.Id"><img src="/Images/Product/@item.Image" alt="@item.Description" class="img-responsive"></a>
+                                <div class="pricetag blue">
+                                    <div class="inner"><span>₺@item.Price</span></div>
+                                </div>
+                            </div>
+                            <span class="smalltitle"><a href="/Product/Details/@item.Id">@item.Name</a></span>
+                            <span class="smalldesc">@item.Stock</span>
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <!--Main content-->
+            <div class="title-bg">
+                <div class="title">Shepherd Markt Hakkında</div>
+            </div>
+            <p class="ct">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="ct">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <a href="/Home/About" class="btn btn-default btn-red btn-sm">Devamı...</a>
+
+
+
+            <div class="spacer"></div>
+        </div>
+        <div class="col-md-3">
+            <!--sidebar-->
+            <div class="title-bg">
+                <div class="title">Kategoriler</div>
+            </div>
+
+            <div class="categorybox">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Tümü</a>
+                    </li>
+
+                    @foreach (Category cat in list)
+                    {
+                        <li>
+                            <a href="/Home/ByCategory/@cat.Id" title="@cat.Description">@cat.Title</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+            <div class="ads">
+                <a href="/Home">
+                    <img src="/Images/Others/ads.png" class="img-responsive" alt="Reklam">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,121 @@
+﻿@using MarktSoftware.Entity
+@using MarktSoftware.WebUI.Models
+@model List<MarktSoftware.Entity.Product>
+@{
+    ViewBag.Title = "Tüm Ürünler-Liste";
+    List<Category> list = CacheHelper.GetCategoriesFromCache();
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-title-wrap">
+                <div class="page-title-inner">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="bread"><a href="/Home">Ana Sayfa</a> &rsaquo; Tüm Ürünler</div>
+                            <div class="bigtitle">Tüm Ürünler</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <!--Main content-->
+            <div class="title-bg">
+                <div class="title">Tüm Ürünler</div>
+                <div class="title-nav">
+                    <a href="/Home/AllProduct_Grid"><i class="fa fa-th-large"></i>ızgara</a>
+                    <a href="/Home/AllProduct_List"><i class="fa fa-bars"></i>liste</a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <ul class="gridlist">
+
+
+                @foreach (var item in Model)
+                {
+                    <li class="gridlist-inner">
+                        <div class="white">
+                            <div class="row clearfix">
+                                <div class="col-md-4">
+                                    <div class="pr-img">
+                                        @if (item.NewHot == "new")
+                                        {
+                                            <div class="new"></div>
+                                        }
+                                        @if (item.NewHot == "hot")
+                                        {
+                                            <div class="hot"></div>
+                                        }
+                                        @if (item.NewHot == "new")
+                                        {
+                                            <div class=""></div>
+                                        }
+                                        <a href="/Product/Details/@item.Id"><img src="/Images/Product/@item.Image" alt="" class="img-responsive"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="gridlisttitle">@item.Name <span>Stok Adeti: @item.Stock</span></div>
+                                    <p class="gridlist-desc">
+                                        @item.Description
+                                    </p>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="gridlist-pricetag on-sale"><div class="inner"><span><span class="oldprice">₺300</span>₺@item.Price</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gridlist-act">
+                            <a href="#"><span class="trolly">&nbsp;</span>Sepete Ekle</a>
+                            <a href="#"><i class="fa fa-plus"></i>Yorum Ekle</a>
+                            <span>  </span>
+                            <a href="#"><i class="fa fa-heart"></i>Beğen</a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                }
+            </ul>
+
+
+
+        </div>
+        <div class="col-md-3">
+            <!--sidebar-->
+            <div class="title-bg">
+                <div class="title">Kategoriler</div>
+            </div>
+
+            <div class="categorybox">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Tümü</a>
+                    </li>
+
+                    @foreach (Category cat in list)
+                    {
+                        <li>
+                            <a href="/Home/ByCategory/@cat.Id" title="@cat.Description">@cat.Title</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+            <div class="ads">
+                <a href="/Home">
+                    <img src="/Images/Others/ads.png" class="img-responsive" alt="Reklam">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+</div>
+
+
+

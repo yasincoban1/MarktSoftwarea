@@ -1,0 +1,171 @@
+﻿@model MarktSoftware.Entity.Product
+
+@{
+    ViewBag.Title = "Ürün Sil"; Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div style="margin-bottom:10px;" class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>@ViewBag.Title</h2>
+            <h3>Silmek istediğinize emin misiniz?</h3>
+        </div>
+        <div>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Categorys.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Categorys.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Brand)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Brand)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Model)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Model)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Stock)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LikeCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LikeCount)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.OldPrice)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.OldPrice)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NewHot)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NewHot)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Image)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternativeImage1)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AlternativeImage1)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternativeImage2)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AlternativeImage2)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternativeImage3)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AlternativeImage3)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsHome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsHome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsApproved)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsApproved)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsFeatured)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsFeatured)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsCarousel)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsCarousel)
+                </dd>
+
+            </dl>
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div  class="form-actions no-color">
+                    @Bootstrap.Button("danger", string.Empty, "submit", "remove", " Kaldır")
+                    @Bootstrap.LinkButton("/Product/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
+                </div>
+            }
+        </div>
+
+    </div>
+</div>

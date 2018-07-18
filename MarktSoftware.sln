@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarktSoftware.WebUI", "MarktSoftware.WebUI\MarktSoftware.WebUI.csproj", "{56C2E2AE-E70D-40A1-A511-2FCB91C739B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarktSoftware.BusinessLayer", "MarktSoftware.BusinessLayer\MarktSoftware.BusinessLayer.csproj", "{F8CCAC88-07C0-4A4E-A880-59989F76E4E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarktSoftware.Common", "MarktSoftware.Common\MarktSoftware.Common.csproj", "{7DD9DD8C-DACA-440B-BB35-F444E4116E5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarktSoftware.Core", "MarktSoftware.Core\MarktSoftware.Core.csproj", "{6A128E5A-0FA8-4C0A-8536-6D5EE3C88A0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarktSoftware.DAL", "MarktSoftware.DAL\MarktSoftware.DAL.csproj", "{5D949607-1A12-4C44-8F5E-1FB330EA321F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarktSoftware.Entity", "MarktSoftware.Entity\MarktSoftware.Entity.csproj", "{60E590CF-F497-4832-BD52-F0AFA54B5F30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56C2E2AE-E70D-40A1-A511-2FCB91C739B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56C2E2AE-E70D-40A1-A511-2FCB91C739B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56C2E2AE-E70D-40A1-A511-2FCB91C739B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56C2E2AE-E70D-40A1-A511-2FCB91C739B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8CCAC88-07C0-4A4E-A880-59989F76E4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CCAC88-07C0-4A4E-A880-59989F76E4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CCAC88-07C0-4A4E-A880-59989F76E4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CCAC88-07C0-4A4E-A880-59989F76E4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD9DD8C-DACA-440B-BB35-F444E4116E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD9DD8C-DACA-440B-BB35-F444E4116E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD9DD8C-DACA-440B-BB35-F444E4116E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD9DD8C-DACA-440B-BB35-F444E4116E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A128E5A-0FA8-4C0A-8536-6D5EE3C88A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A128E5A-0FA8-4C0A-8536-6D5EE3C88A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A128E5A-0FA8-4C0A-8536-6D5EE3C88A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A128E5A-0FA8-4C0A-8536-6D5EE3C88A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D949607-1A12-4C44-8F5E-1FB330EA321F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D949607-1A12-4C44-8F5E-1FB330EA321F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D949607-1A12-4C44-8F5E-1FB330EA321F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D949607-1A12-4C44-8F5E-1FB330EA321F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E590CF-F497-4832-BD52-F0AFA54B5F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E590CF-F497-4832-BD52-F0AFA54B5F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E590CF-F497-4832-BD52-F0AFA54B5F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E590CF-F497-4832-BD52-F0AFA54B5F30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97338061-924C-4072-8123-A0DFD689F814}
+	EndGlobalSection
+EndGlobal

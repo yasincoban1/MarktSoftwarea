@@ -1,0 +1,23 @@
+﻿@model MarktSoftware.Entity.Product
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="text-center">
+            @Model.Brand+" "+@Model.Model+" "+@Model.Description
+        </h3>
+    </div>
+    <div class="col-md-12">
+        <hr />
+    </div>
+    <div class="col-md-12 text-right">
+        <span class="glyphicon glyphicon-user"></span> @Model.Owner.Username<br />
+        <span class="glyphicon glyphicon-time"></span> @Model.ModifiedOn
+    </div>
+    <div class="col-md-12">
+        <hr />
+    </div>
+    <div class="col-md-12">
+        <p class="text-justify">
+            @Model.Description
+        </p>
+    </div>
+</div>

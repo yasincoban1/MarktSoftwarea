@@ -1,0 +1,30 @@
+﻿@model MarktSoftware.Entity.MarktUser
+@{
+    ViewBag.Title = "Profiliniz";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <a href="/Images/MarktUser/@Model.ProfileImageFilename" rel="lightbox">
+                <img src="/Images/MarktUser/@Model.ProfileImageFilename" class="img-circle" width="128" height="128" />
+            </a>
+        </div>
+        <div class="col-md-10">
+            <h3>@(Model.Name + " " + Model.LastName)</h3>
+            <br />
+            <h5><b>@Html.DisplayNameFor(model => model.Username) : </b>@Model.Username</h5>
+            <h5><b>@Html.DisplayNameFor(model => model.Email) : </b>@Model.Email</h5>
+            <br />
+            <h5>
+                @Bootstrap.LinkButton("/Home/Index", "default", string.Empty, string.Empty, "arrow-right", "Daha Fazlası İçin...")
+                @Bootstrap.LinkButton("/Home/EditProfile", "default", string.Empty, string.Empty, "arrow-right", "Düzenle")
+            </h5>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,144 @@
+﻿@using MarktSoftware.Entity
+@using MarktSoftware.WebUI.Models
+@model MarktSoftware.Entity.Product
+
+@{
+    ViewBag.Title = "Ürün Detayları";
+    List<Category> list = CacheHelper.GetCategoriesFromCache();
+   
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-title-wrap">
+                <div class="page-title-inner">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="bread"><a href="#">Ana Sayfa</a> &rsaquo; Ürün Detay</div>
+                            <div class="bigtitle">Ürün Detay Sayfası</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <!--Main content-->
+            <div class="title-bg">
+                <div class="title">@Model.Name</div>
+            </div>
+            <div  class="row">
+                <div class="col-md-6">
+                    <div class="dt-img">
+                        <div class="detpricetag"><div  class="inner">@Model.Price</div></div>
+                        <a href="~/Images/Product/@Model.Image" rel="lightbox">
+                            <img style="height: 290px;" src="~/Images/Product/@Model.Image" />
+                        </a>
+                    </div>
+                    <div class="thumb-img">
+                        @if (Model.AlternativeImage1 != null)
+                        {
+                            <a href="~/Images/Product/@Model.AlternativeImage1" rel="lightbox">
+                                <img  src="~/Images/Product/@Model.AlternativeImage1" class="img-circle" width="128" height="128" />
+                            </a>
+                        }
+                    </div>
+                    <div  class="thumb-img">
+                        @if (Model.AlternativeImage2 != null)
+                        {
+                            <a href="~/Images/Product/@Model.AlternativeImage2" rel="lightbox">
+                                <img  src="~/Images/Product/@Model.AlternativeImage2" class="img-circle" width="128" height="128" />
+                            </a>
+                        }
+                    </div>
+                    <div  class="thumb-img">
+                        @if (Model.AlternativeImage3 != null)
+                        {
+                            <a href="~/Images/Product/@Model.AlternativeImage3" rel="lightbox">
+                                <img  src="~/Images/Product/@Model.AlternativeImage3" class="img-circle" width="128" height="128" />
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6 det-desc">
+                    <div style="margin-top: 40px;" class="productdata">
+                        <div class="infospan">Markası: <span>@Model.Brand</span></div>
+                        <div class="infospan">Modeli: <span>@Model.Model</span></div>
+                        <div class="infospan">Beğenilme: <span>@Model.LikeCount</span></div>
+                        <div class="infospan">Stok Miktari: <span>@Model.Stock</span></div>
+                        <div class="infospan">Eski Fiyatı: <span>@Model.OldPrice</span></div>
+                        <div class="infospan">Şimdiki Fiyati: <span>@Model.Price</span></div>
+                        <p>
+                            <button class="btn btn-default btn-sm" type="button" data-liked="false" data-product-id="@Model.Id">
+                                <span class="glyphicon glyphicon-star-empty like-star"></span>&nbsp;
+                                <span class="like-count">@Model.LikeCount</span>
+                            </button>
+
+                            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_comment" data-product-id="@Model.Id">
+                                <span class="glyphicon glyphicon-comment"></span> Yorumlar
+                            </button>
+                            @using (Html.BeginForm("AddToCart", "Cart"))
+                            {
+                                @Html.HiddenFor(i => i.Id)
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    Sepete Ekle
+                                </button>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-review">
+                <ul id="myTab" class="nav nav-tabs shop-tab">
+                    <li class="active"><a href="#desc" data-toggle="tab">Açıklaması</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content shop-tab-ct">
+                    <div class="tab-pane fade active in" id="desc">
+                        <p>
+                           @Model.Description
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div><!--Main content-->
+        <div class="col-md-3">
+            <!--sidebar-->
+            <div class="title-bg">
+                <div class="title">Kategoriler</div>
+            </div>
+
+            <div class="categorybox">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Tümü</a>
+                    </li>
+                    <li>
+                        @foreach (Category cat in list)
+                        {
+                            <a href="/Home/ByCategory/@cat.Id" title="@cat.Description">@cat.Title</a>
+                        }
+                    </li>
+                </ul>
+            </div>
+            <div class="ads">
+                <a href="/Home">
+                    <img src="/Images/Others/ads.png" class="img-responsive" alt="Reklam">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+@Bootstrap.ModalPopup(id: "modal_comment", title: "Yorumlar")
+@Bootstrap.ModalPopup(id: "modal_productdetail", title:"Ürün Detayı")
+
+<script src="~/Scripts/comment.js"></script>
+<script src="~/Scripts/like.js"></script>
+<script src="~/Scripts/ProductDetailPopup.js"></script>
+
